@@ -1,3 +1,18 @@
+@font-face {
+    font-family: 'Poppins-regular';
+    src: url('../fonts/Poppins-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Poppins-bold';
+    src: url('../fonts/Poppins-Bold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Poppins-extra-bold';
+    src: url('../fonts/Poppins-ExtraBold.ttf') format('truetype');
+}
+
 :root {
     /* colors */
         --purple: hsl(259, 100%, 65%);
