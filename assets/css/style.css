@@ -24,6 +24,8 @@
         --off-black: hsl(0, 0%, 8%);
 
         --clr-error: hsl(0, 100%, 67%);
+    /* fonts */
+        --ff-primary: "Poppins-regular", sans-serif;
 }
 
 *,
