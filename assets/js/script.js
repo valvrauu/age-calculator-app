@@ -133,3 +133,34 @@ function handleAgeCalculator(userBirthDay, userBirthMonth, userBirthYear) {
 
     displayAgeResult(userAgeDays, userAgeMonths, userAgeYears);
 }
+
+function displayAgeResult(days, months, years) {
+    let initDays = 0;
+    let initMonths = 0;
+    let initYear = 0;
+
+    const calculatorYearResult = document.getElementById('calculatorYearResult');
+    const calculatorMonthResult = document.getElementById('calculatorMonthResult');
+    const calculatorDayResult = document.getElementById('calculatorDaysResult');
+
+    const yearAnimation = setInterval(() => {
+        if (initYear === years) clearInterval(yearAnimation);
+
+        calculatorYearResult.textContent = initYear;
+        initYear++;
+    }, 50);
+
+    const monthAnimation = setInterval(() => {
+        if (initMonths === months) clearInterval(monthAnimation);
+
+        calculatorMonthResult.textContent = initMonths;
+        initMonths++;
+    }, 50);
+
+    const dayAnimation = setInterval(() => {
+        if (initDays === days) clearInterval(dayAnimation);
+
+        calculatorDayResult.textContent = initDays;
+        initDays++;
+    }, 50);
+}
