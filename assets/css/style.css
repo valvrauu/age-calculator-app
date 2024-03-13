@@ -46,4 +46,9 @@ html {
 body {
     min-height: 100vh;
     min-height: 100dvh;
+
+    padding: 8.8rem 1.6rem;
+
+    background: var(--off-white);
+    font-family: var(--ff-primary);
 }
