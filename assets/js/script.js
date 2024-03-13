@@ -177,3 +177,7 @@ function createAlert(msg) {
 
     return span;
 }
+
+function removeAlert(alert) {
+    alert && alert.remove();
+}
