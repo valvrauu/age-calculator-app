@@ -20,18 +20,76 @@
   </head>
   <body>
 
-    Day
-    DD
+    <main>
+      <div class="calculator">
+        <form class="form" action="#" method="get">
+          <div class="form__field-boxes">
+            <div class="form__field-box">
+              <label class="form__label" for="userBirthDay">Day</label>
 
-    Month
-    MM
+              <input 
+                type="text" 
+                id="userBirthDay" 
+                name="userBirthDay" 
+                class="form__input" 
+                placeholder="DD" 
+              >
+            </div>
 
-    Year
-    YYYY
+            <div class="form__field-box">
+              <label class="form__label" for="userBirthMonth">Month</label>
 
-    -- years
-    -- months
-    -- days
+              <input 
+                type="text" 
+                id="userBirthMonth" 
+                name="userBirthMonth" 
+                class="form__input" 
+                placeholder="MM" 
+              >
+            </div>
+
+            <div class="form__field-box">
+              <label class="form__label" for="userBirthYear">Year</label>
+
+              <input 
+                type="text" 
+                id="userBirthYear" 
+                name="userBirthYear" 
+                class="form__input" 
+                placeholder="YYYY" 
+              >
+            </div>
+          </div>
+
+          <div class="form__btn-box">
+            <button class="btn btn--primary form__btn" aria-label="submit date">
+              <svg class="btn__icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 46 44">
+                <g>
+                  <path d="M1 22.019C8.333 21.686 23 25.616 23 44M23 44V0M45 22.019C37.667 21.686 23 25.616 23 44"/>
+                </g>
+              </svg>
+            </button>
+          </div>
+        </form>
+
+        <div class="calculator__result-boxes">
+          <div class="calculator__result-box">
+            <span class="calculator__value" id="calculatorYearResult">- -</span>
+            <span class="calculator__label">years</span>
+          </div>
+
+          <div class="calculator__result-box">
+            <span class="calculator__value" id="calculatorMonthResult">- -</span>
+            <span class="calculator__label">months</span>
+          </div>
+
+          <div class="calculator__result-box">
+            <span class="calculator__value" id="calculatorDaysResult">- -</span>
+            <span class="calculator__label">days</span>
+          </div>
+        </div>
+      </div>
+    </main>
 
     <script src="assets/js/script.js"></script>
   </body>
