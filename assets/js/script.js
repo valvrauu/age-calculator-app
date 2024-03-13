@@ -169,3 +169,11 @@ function fieldBoxAlert(fieldBox, isError) {
     if (isError) return fieldBox.classList.add('form__field-box--error');
     fieldBox.classList.remove('form__field-box--error');
 }
+
+function createAlert(msg) {
+    const span = document.createElement('span');
+    span.className = 'alert';
+    span.textContent = msg;
+
+    return span;
+}
