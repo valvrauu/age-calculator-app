@@ -64,3 +64,45 @@ function handleInput(input) {
 
     return isValid;
 }
+
+function handleValidDate(inputs) {
+    let inputBirthDay = null;
+    let isValid = true;
+
+    let year = null;
+    let month = null;
+    let day = null;
+
+    inputs.forEach(input => {
+        removeAlert(input.nextElementSibling);
+        const { value: inputValue } = input;
+
+        if (input.id === 'userBirthDay') {
+            day = inputValue.replace(/^0+/, '');
+            inputBirthDay = input;
+        }
+
+        if (input.id === 'userBirthMonth') month = inputValue.replace(/^0+/, '');
+        if (input.id === 'userBirthYear') year = inputValue.replace(/^0+/, '');
+    });
+
+    const currentDate = new Date();
+
+    currentDate.setFullYear(year);
+    currentDate.setMonth(month - 1);
+    currentDate.setDate(day);
+
+    const formatDate = currentDate.toLocaleDateString();
+    const resultDate = `${month}/${day}/${year}`;
+
+    if (formatDate !== resultDate) {
+        const fieldBox = inputBirthDay.parentNode;
+        const alert = createAlert('Must be a valid date');
+        inputBirthDay.insertAdjacentElement('afterend', alert);
+
+        fieldBoxAlert(fieldBox, true);
+        isValid = false;
+    }
+
+    return isValid;
+}
