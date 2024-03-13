@@ -106,3 +106,30 @@ function handleValidDate(inputs) {
 
     return isValid;
 }
+
+function handleAgeCalculator(userBirthDay, userBirthMonth, userBirthYear) {
+    const userBirthDate = new Date(`${userBirthYear}-${userBirthMonth}-${userBirthDay}`);
+    const currentDate = new Date();
+
+    const currentYear = currentDate.getFullYear();
+    const currentMonth = currentDate.getMonth() + 1;
+    const currentDay = currentDate.getDate();
+
+    const userResultDate = new Date(currentDate - userBirthDate);
+
+    let userAgeDays = userResultDate.getDate() - 1;
+    let userAgeMonths = userResultDate.getMonth();
+    let userAgeYears = currentYear - userBirthYear;
+
+    if (
+        (userBirthYear == currentYear && userBirthMonth > currentMonth) ||
+        (userBirthYear == currentYear && userBirthMonth == currentMonth && userBirthDay >= currentDay)) {
+        userAgeDays = 0;
+        userAgeMonths = 0;
+    }
+
+    if (userBirthDay > currentDay && userBirthMonth >= currentMonth) userAgeYears--;
+    if(userAgeYears < 0) userAgeYears = 0;
+
+    displayAgeResult(userAgeDays, userAgeMonths, userAgeYears);
+}
