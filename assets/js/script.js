@@ -1,3 +1,38 @@
+(function validateAgeCalculator() {
+    const calculator = document.querySelector('.calculator');
+    const form = calculator.querySelector('.form');
+
+    form.addEventListener('submit', e => {
+        e.preventDefault();
+
+        const inputs = form.querySelectorAll('.form__input');
+        let isValid = true;
+
+        inputs.forEach(input => {
+            removeAlert(input.nextElementSibling);
+            if (!handleEmptyInput(input)) isValid = false;
+        });
+
+        if (!isValid) return;
+
+        inputs.forEach(input => {
+            removeAlert(input.nextElementSibling);
+            if (!handleInput(input)) isValid = false;
+        });
+
+        if (!isValid) return;
+
+        if (!handleValidDate(inputs)) isValid = false;
+
+        if (!isValid) return;
+
+        const formData = new FormData(form);
+        const [userBirthDay, userBirthMonth, userBirthYear] = formData.values();
+
+        handleAgeCalculator(userBirthDay, userBirthMonth, userBirthYear);
+    });
+})();
+
 function handleEmptyInput(input) {
     const fieldBox = input.parentNode;
     const { value: inputValue } = input;
