@@ -1,3 +1,18 @@
+@font-face {
+    font-family: 'Poppins-regular';
+    src: url('../fonts/Poppins-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Poppins-bold';
+    src: url('../fonts/Poppins-Bold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Poppins-extra-bold-italic';
+    src: url('../fonts/Poppins-ExtraBoldItalic.ttf') format('truetype');
+}
+
 :root {
     /* colors */
         --purple: hsl(259, 100%, 65%);
@@ -9,6 +24,8 @@
         --off-black: hsl(0, 0%, 8%);
 
         --clr-error: hsl(0, 100%, 67%);
+    /* fonts */
+        --ff-primary: "Poppins-regular", sans-serif;
 }
 
 *,
@@ -29,4 +46,217 @@ html {
 body {
     min-height: 100vh;
     min-height: 100dvh;
+
+    padding: 8.8rem 1.6rem;
+
+    background: var(--off-white);
+    font-family: var(--ff-primary);
+}
+
+@media screen and (min-width: 40em) {
+    body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+.calculator {
+    max-width: 84rem;
+    padding: 4.8rem 2.4rem;
+
+    background: var(--white);
+    border-radius: 2.4rem 2.4rem 10rem 2.4rem;
+}
+
+.calculator,
+.calculator .form {
+    display: flex;
+    flex-direction: column;
+    gap: 3.2rem;
+}
+
+.calculator .form__field-boxes {
+    display: grid;
+    align-items: flex-start;
+    gap: 1.6rem;
+}
+
+.calculator .form__field-box {
+    display: grid;
+    gap: .4rem;
+
+    color: var(--smokey-grey);
+
+    font-family: 'Poppins-bold';
+    font-size: 1.2rem;
+}
+
+.calculator .form__field-box--error {
+    color: var(--clr-error);
+}
+
+.calculator .form__field-box--error .form__input {
+    outline: 1px solid  var(--clr-error);
+}
+
+.calculator .form__label {
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+}
+
+.calculator .form__input {
+    padding: 1.2rem 1.6rem;
+    width: 100%;
+
+    color: var(--off-black);
+
+    font-size: 2rem;
+    font-family: inherit;
+    letter-spacing: 0.01em;
+
+    border-radius: 8px;
+    border: 0;
+
+    outline: 1px solid  var(--light-grey);
+    outline-offset: -1px;
+}
+
+.calculator .form__input:focus {
+    caret-color: var(--purple);
+    outline: 1px solid  var(--purple);
+}
+
+.calculator .alert {
+    font-family: 'Poppins-regular';
+    font-style: italic;
+}
+
+.calculator .form__btn-box {
+    position: relative;
+
+    display: flex;
+    justify-content: center;
+}
+
+.calculator .form__btn-box::before {
+    content: '';
+
+    position: absolute;
+    inset: 50% 0;
+
+    height: 1px;
+
+    background: var(--light-grey);
+}
+
+.calculator .form__btn {
+    width: 6.4rem;
+    height: 6.4rem;
+
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.calculator__result-box {
+    display: flex;
+    flex-direction: column;
+    gap: .8rem;
+
+    font-family: 'Poppins-extra-bold-italic';
+    font-size: 5.6rem;
+    text-wrap: nowrap;
+    letter-spacing: -.02em;
+    line-height: 1.1em;
+}
+
+.calculator__value {
+    color: var(--purple);
+}
+
+.calculator__label {
+    overflow-x: clip;
+    text-overflow: ellipsis;
+}
+
+@media screen and (min-width: 20em) {
+    .calculator .form__field-boxes {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .calculator__result-box {
+        flex-direction: row;
+    }
+}
+
+@media screen and (min-width: 48em) {
+    .calculator {
+        padding: 5.6rem;
+        border-radius: 2.4rem 2.4rem 20rem 2.4rem;
+    }
+
+    .calculator,
+    .calculator .form {
+        gap: 0;
+    }
+
+    .calculator .form__field-boxes {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 3.2rem;
+    }
+
+    .calculator .form__field-box {
+        gap: .8rem;
+        font-size: 1.4rem;
+    }
+
+    .calculator .form__input {
+        padding: 1.2rem 2.4rem;
+        font-size: 3.2rem;
+    }
+
+    .calculator .form__btn-box {
+        justify-content: flex-end;
+    }
+
+    .calculator .form__btn {
+        width: 9.6rem;
+        height: 9.6rem;
+    }
+
+    .calculator__result-box {
+        font-size: 10.4rem;
+    }
+}
+
+.btn  {
+    border: 0;
+    cursor: pointer;
+}
+
+.btn--primary {
+    background: var(--purple);
+    transition: background-color 250ms;
+}
+
+.btn--primary:hover {
+    background: var(--off-black );
+}
+
+.btn__icon {
+    fill: none;
+    stroke: var(--off-white);
+    stroke-width: 4;
+
+    width: 2.4rem;
+    height: 2.4rem;
+}
+
+@media screen and (min-width: 48em) {
+    .btn__icon {
+        stroke-width: 2;
+
+        width: 4.4rem;
+        height: 4.4rem;
+    }
 }
