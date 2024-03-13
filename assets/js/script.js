@@ -164,3 +164,8 @@ function displayAgeResult(days, months, years) {
         initDays++;
     }, 50);
 }
+
+function fieldBoxAlert(fieldBox, isError) {
+    if (isError) return fieldBox.classList.add('form__field-box--error');
+    fieldBox.classList.remove('form__field-box--error');
+}
