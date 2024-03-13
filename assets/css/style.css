@@ -9,8 +9,8 @@
 }
 
 @font-face {
-    font-family: 'Poppins-extra-bold';
-    src: url('../fonts/Poppins-ExtraBold.ttf') format('truetype');
+    font-family: 'Poppins-extra-bold-italic';
+    src: url('../fonts/Poppins-ExtraBoldItalic.ttf') format('truetype');
 }
 
 :root {
