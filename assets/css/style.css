@@ -228,3 +228,35 @@ body {
         font-size: 10.4rem;
     }
 }
+
+.btn  {
+    border: 0;
+    cursor: pointer;
+}
+
+.btn--primary {
+    background: var(--purple);
+    transition: background-color 250ms;
+}
+
+.btn--primary:hover {
+    background: var(--off-black );
+}
+
+.btn__icon {
+    fill: none;
+    stroke: var(--off-white);
+    stroke-width: 4;
+
+    width: 2.4rem;
+    height: 2.4rem;
+}
+
+@media screen and (min-width: 48em) {
+    .btn__icon {
+        stroke-width: 2;
+
+        width: 4.4rem;
+        height: 4.4rem;
+    }
+}
