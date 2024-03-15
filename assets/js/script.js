@@ -143,28 +143,30 @@ function handleValidDate(inputs) {
 }
 
 function handleAgeCalculator(userBirthDay, userBirthMonth, userBirthYear) {
-    const userBirthDate = new Date(`${userBirthYear}-${userBirthMonth}-${userBirthDay}`);
     const currentDate = new Date();
-
     const currentYear = currentDate.getFullYear();
     const currentMonth = currentDate.getMonth() + 1;
     const currentDay = currentDate.getDate();
 
-    const userResultDate = new Date(currentDate - userBirthDate);
-
-    let userAgeDays = userResultDate.getDate() - 1;
-    let userAgeMonths = userResultDate.getMonth();
     let userAgeYears = currentYear - userBirthYear;
+    let userAgeMonths = currentMonth - userBirthMonth;
+    let userAgeDays = currentDay - userBirthDay;
 
-    if (
-        (userBirthYear == currentYear && userBirthMonth > currentMonth) ||
-        (userBirthYear == currentYear && userBirthMonth == currentMonth && userBirthDay >= currentDay)) {
-        userAgeDays = 0;
-        userAgeMonths = 0;
+    if (userBirthDay > currentDay && userBirthMonth >= currentMonth || userBirthMonth > currentMonth) {
+        userAgeYears--;
+        userAgeMonths = 12 - Math.abs(userAgeMonths);
     }
 
-    if (userBirthDay > currentDay && userBirthMonth >= currentMonth) userAgeYears--;
-    if(userAgeYears < 0) userAgeYears = 0;
+    if (userAgeMonths < 0) userAgeMonths = 12 - Math.abs(userAgeMonths);
+    if (userAgeDays < 0) userAgeDays = Math.ceil(30.4167 - Math.abs(userAgeDays));
+    if (userBirthDay > currentDay) userAgeMonths--;
+
+    if (userBirthDay > currentDay && userBirthMonth >= currentMonth && userBirthYear >= currentYear ||
+        userBirthMonth > currentMonth && userBirthYear >= currentYear) {
+        userAgeYears = 0;
+        userAgeMonths = 0;
+        userAgeDays = 0;
+    }
 
     displayAgeResult(userAgeDays, userAgeMonths, userAgeYears);
 }
